@@ -17,11 +17,11 @@ import (
 	"fmt"
 )
 
-// checks if the APIKey type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &APIKey{}
+// checks if the VaultAPIKey type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VaultAPIKey{}
 
-// APIKey struct for APIKey
-type APIKey struct {
+// VaultAPIKey struct for VaultAPIKey
+type VaultAPIKey struct {
 	// Unique API key ID
 	Id int64 `json:"id"`
 	// Human-readable name for the API key
@@ -40,14 +40,14 @@ type APIKey struct {
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
 }
 
-type _APIKey APIKey
+type _VaultAPIKey VaultAPIKey
 
-// NewAPIKey instantiates a new APIKey object
+// NewVaultAPIKey instantiates a new VaultAPIKey object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIKey(id int64, name string, isActive bool, createdAt time.Time) *APIKey {
-	this := APIKey{}
+func NewVaultAPIKey(id int64, name string, isActive bool, createdAt time.Time) *VaultAPIKey {
+	this := VaultAPIKey{}
 	this.Id = id
 	this.Name = name
 	this.IsActive = isActive
@@ -55,16 +55,16 @@ func NewAPIKey(id int64, name string, isActive bool, createdAt time.Time) *APIKe
 	return &this
 }
 
-// NewAPIKeyWithDefaults instantiates a new APIKey object
+// NewVaultAPIKeyWithDefaults instantiates a new VaultAPIKey object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAPIKeyWithDefaults() *APIKey {
-	this := APIKey{}
+func NewVaultAPIKeyWithDefaults() *VaultAPIKey {
+	this := VaultAPIKey{}
 	return &this
 }
 
 // GetId returns the Id field value
-func (o *APIKey) GetId() int64 {
+func (o *VaultAPIKey) GetId() int64 {
 	if o == nil {
 		var ret int64
 		return ret
@@ -75,7 +75,7 @@ func (o *APIKey) GetId() int64 {
 
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetIdOk() (*int64, bool) {
+func (o *VaultAPIKey) GetIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -83,12 +83,12 @@ func (o *APIKey) GetIdOk() (*int64, bool) {
 }
 
 // SetId sets field value
-func (o *APIKey) SetId(v int64) {
+func (o *VaultAPIKey) SetId(v int64) {
 	o.Id = v
 }
 
 // GetName returns the Name field value
-func (o *APIKey) GetName() string {
+func (o *VaultAPIKey) GetName() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -99,7 +99,7 @@ func (o *APIKey) GetName() string {
 
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetNameOk() (*string, bool) {
+func (o *VaultAPIKey) GetNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -107,12 +107,12 @@ func (o *APIKey) GetNameOk() (*string, bool) {
 }
 
 // SetName sets field value
-func (o *APIKey) SetName(v string) {
+func (o *VaultAPIKey) SetName(v string) {
 	o.Name = v
 }
 
 // GetVaults returns the Vaults field value if set, zero value otherwise.
-func (o *APIKey) GetVaults() []VaultLite {
+func (o *VaultAPIKey) GetVaults() []VaultLite {
 	if o == nil || IsNil(o.Vaults) {
 		var ret []VaultLite
 		return ret
@@ -122,7 +122,7 @@ func (o *APIKey) GetVaults() []VaultLite {
 
 // GetVaultsOk returns a tuple with the Vaults field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetVaultsOk() ([]VaultLite, bool) {
+func (o *VaultAPIKey) GetVaultsOk() ([]VaultLite, bool) {
 	if o == nil || IsNil(o.Vaults) {
 		return nil, false
 	}
@@ -130,7 +130,7 @@ func (o *APIKey) GetVaultsOk() ([]VaultLite, bool) {
 }
 
 // HasVaults returns a boolean if a field has been set.
-func (o *APIKey) HasVaults() bool {
+func (o *VaultAPIKey) HasVaults() bool {
 	if o != nil && !IsNil(o.Vaults) {
 		return true
 	}
@@ -139,12 +139,12 @@ func (o *APIKey) HasVaults() bool {
 }
 
 // SetVaults gets a reference to the given []VaultLite and assigns it to the Vaults field.
-func (o *APIKey) SetVaults(v []VaultLite) {
+func (o *VaultAPIKey) SetVaults(v []VaultLite) {
 	o.Vaults = v
 }
 
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
-func (o *APIKey) GetExpiresAt() time.Time {
+func (o *VaultAPIKey) GetExpiresAt() time.Time {
 	if o == nil || IsNil(o.ExpiresAt) {
 		var ret time.Time
 		return ret
@@ -154,7 +154,7 @@ func (o *APIKey) GetExpiresAt() time.Time {
 
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetExpiresAtOk() (*time.Time, bool) {
+func (o *VaultAPIKey) GetExpiresAtOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.ExpiresAt) {
 		return nil, false
 	}
@@ -162,7 +162,7 @@ func (o *APIKey) GetExpiresAtOk() (*time.Time, bool) {
 }
 
 // HasExpiresAt returns a boolean if a field has been set.
-func (o *APIKey) HasExpiresAt() bool {
+func (o *VaultAPIKey) HasExpiresAt() bool {
 	if o != nil && !IsNil(o.ExpiresAt) {
 		return true
 	}
@@ -171,12 +171,12 @@ func (o *APIKey) HasExpiresAt() bool {
 }
 
 // SetExpiresAt gets a reference to the given time.Time and assigns it to the ExpiresAt field.
-func (o *APIKey) SetExpiresAt(v time.Time) {
+func (o *VaultAPIKey) SetExpiresAt(v time.Time) {
 	o.ExpiresAt = &v
 }
 
 // GetLastUsedAt returns the LastUsedAt field value if set, zero value otherwise.
-func (o *APIKey) GetLastUsedAt() time.Time {
+func (o *VaultAPIKey) GetLastUsedAt() time.Time {
 	if o == nil || IsNil(o.LastUsedAt) {
 		var ret time.Time
 		return ret
@@ -186,7 +186,7 @@ func (o *APIKey) GetLastUsedAt() time.Time {
 
 // GetLastUsedAtOk returns a tuple with the LastUsedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetLastUsedAtOk() (*time.Time, bool) {
+func (o *VaultAPIKey) GetLastUsedAtOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.LastUsedAt) {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *APIKey) GetLastUsedAtOk() (*time.Time, bool) {
 }
 
 // HasLastUsedAt returns a boolean if a field has been set.
-func (o *APIKey) HasLastUsedAt() bool {
+func (o *VaultAPIKey) HasLastUsedAt() bool {
 	if o != nil && !IsNil(o.LastUsedAt) {
 		return true
 	}
@@ -203,12 +203,12 @@ func (o *APIKey) HasLastUsedAt() bool {
 }
 
 // SetLastUsedAt gets a reference to the given time.Time and assigns it to the LastUsedAt field.
-func (o *APIKey) SetLastUsedAt(v time.Time) {
+func (o *VaultAPIKey) SetLastUsedAt(v time.Time) {
 	o.LastUsedAt = &v
 }
 
 // GetIsActive returns the IsActive field value
-func (o *APIKey) GetIsActive() bool {
+func (o *VaultAPIKey) GetIsActive() bool {
 	if o == nil {
 		var ret bool
 		return ret
@@ -219,7 +219,7 @@ func (o *APIKey) GetIsActive() bool {
 
 // GetIsActiveOk returns a tuple with the IsActive field value
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetIsActiveOk() (*bool, bool) {
+func (o *VaultAPIKey) GetIsActiveOk() (*bool, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,12 +227,12 @@ func (o *APIKey) GetIsActiveOk() (*bool, bool) {
 }
 
 // SetIsActive sets field value
-func (o *APIKey) SetIsActive(v bool) {
+func (o *VaultAPIKey) SetIsActive(v bool) {
 	o.IsActive = v
 }
 
 // GetCreatedAt returns the CreatedAt field value
-func (o *APIKey) GetCreatedAt() time.Time {
+func (o *VaultAPIKey) GetCreatedAt() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -243,7 +243,7 @@ func (o *APIKey) GetCreatedAt() time.Time {
 
 // GetCreatedAtOk returns a tuple with the CreatedAt field value
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetCreatedAtOk() (*time.Time, bool) {
+func (o *VaultAPIKey) GetCreatedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -251,12 +251,12 @@ func (o *APIKey) GetCreatedAtOk() (*time.Time, bool) {
 }
 
 // SetCreatedAt sets field value
-func (o *APIKey) SetCreatedAt(v time.Time) {
+func (o *VaultAPIKey) SetCreatedAt(v time.Time) {
 	o.CreatedAt = v
 }
 
 // GetUpdatedAt returns the UpdatedAt field value if set, zero value otherwise.
-func (o *APIKey) GetUpdatedAt() time.Time {
+func (o *VaultAPIKey) GetUpdatedAt() time.Time {
 	if o == nil || IsNil(o.UpdatedAt) {
 		var ret time.Time
 		return ret
@@ -266,7 +266,7 @@ func (o *APIKey) GetUpdatedAt() time.Time {
 
 // GetUpdatedAtOk returns a tuple with the UpdatedAt field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *APIKey) GetUpdatedAtOk() (*time.Time, bool) {
+func (o *VaultAPIKey) GetUpdatedAtOk() (*time.Time, bool) {
 	if o == nil || IsNil(o.UpdatedAt) {
 		return nil, false
 	}
@@ -274,7 +274,7 @@ func (o *APIKey) GetUpdatedAtOk() (*time.Time, bool) {
 }
 
 // HasUpdatedAt returns a boolean if a field has been set.
-func (o *APIKey) HasUpdatedAt() bool {
+func (o *VaultAPIKey) HasUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -283,11 +283,11 @@ func (o *APIKey) HasUpdatedAt() bool {
 }
 
 // SetUpdatedAt gets a reference to the given time.Time and assigns it to the UpdatedAt field.
-func (o *APIKey) SetUpdatedAt(v time.Time) {
+func (o *VaultAPIKey) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt = &v
 }
 
-func (o APIKey) MarshalJSON() ([]byte, error) {
+func (o VaultAPIKey) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -295,7 +295,7 @@ func (o APIKey) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o APIKey) ToMap() (map[string]interface{}, error) {
+func (o VaultAPIKey) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["id"] = o.Id
 	toSerialize["name"] = o.Name
@@ -316,7 +316,7 @@ func (o APIKey) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-func (o *APIKey) UnmarshalJSON(data []byte) (err error) {
+func (o *VaultAPIKey) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -341,53 +341,53 @@ func (o *APIKey) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varAPIKey := _APIKey{}
+	varVaultAPIKey := _VaultAPIKey{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAPIKey)
+	err = decoder.Decode(&varVaultAPIKey)
 
 	if err != nil {
 		return err
 	}
 
-	*o = APIKey(varAPIKey)
+	*o = VaultAPIKey(varVaultAPIKey)
 
 	return err
 }
 
-type NullableAPIKey struct {
-	value *APIKey
+type NullableVaultAPIKey struct {
+	value *VaultAPIKey
 	isSet bool
 }
 
-func (v NullableAPIKey) Get() *APIKey {
+func (v NullableVaultAPIKey) Get() *VaultAPIKey {
 	return v.value
 }
 
-func (v *NullableAPIKey) Set(val *APIKey) {
+func (v *NullableVaultAPIKey) Set(val *VaultAPIKey) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAPIKey) IsSet() bool {
+func (v NullableVaultAPIKey) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAPIKey) Unset() {
+func (v *NullableVaultAPIKey) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAPIKey(val *APIKey) *NullableAPIKey {
-	return &NullableAPIKey{value: val, isSet: true}
+func NewNullableVaultAPIKey(val *VaultAPIKey) *NullableVaultAPIKey {
+	return &NullableVaultAPIKey{value: val, isSet: true}
 }
 
-func (v NullableAPIKey) MarshalJSON() ([]byte, error) {
+func (v NullableVaultAPIKey) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAPIKey) UnmarshalJSON(src []byte) error {
+func (v *NullableVaultAPIKey) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

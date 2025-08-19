@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApiKeys** | [**[]APIKey**](APIKey.md) |  | 
+**ApiKeys** | [**[]VaultAPIKey**](VaultAPIKey.md) |  | 
 **TotalCount** | **int32** | Total number of API keys | 
 **PageSize** | **int32** | Number of API keys per page | 
 **PageIndex** | **int32** | Current page index (starting from 1) | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewAPIKeysResponse
 
-`func NewAPIKeysResponse(apiKeys []APIKey, totalCount int32, pageSize int32, pageIndex int32, ) *APIKeysResponse`
+`func NewAPIKeysResponse(apiKeys []VaultAPIKey, totalCount int32, pageSize int32, pageIndex int32, ) *APIKeysResponse`
 
 NewAPIKeysResponse instantiates a new APIKeysResponse object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApiKeys
 
-`func (o *APIKeysResponse) GetApiKeys() []APIKey`
+`func (o *APIKeysResponse) GetApiKeys() []VaultAPIKey`
 
 GetApiKeys returns the ApiKeys field if non-nil, zero value otherwise.
 
 ### GetApiKeysOk
 
-`func (o *APIKeysResponse) GetApiKeysOk() (*[]APIKey, bool)`
+`func (o *APIKeysResponse) GetApiKeysOk() (*[]VaultAPIKey, bool)`
 
 GetApiKeysOk returns a tuple with the ApiKeys field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiKeys
 
-`func (o *APIKeysResponse) SetApiKeys(v []APIKey)`
+`func (o *APIKeysResponse) SetApiKeys(v []VaultAPIKey)`
 
 SetApiKeys sets ApiKeys field to given value.
 

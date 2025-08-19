@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CreatedAt** | **time.Time** | When the action occurred | 
 **Vault** | Pointer to [**VaultLite**](VaultLite.md) |  | [optional] 
-**ApiKey** | Pointer to [**APIKey**](APIKey.md) |  | [optional] 
+**ApiKey** | Pointer to [**VaultAPIKey**](VaultAPIKey.md) |  | [optional] 
 **Action** | **string** | Type of action performed | 
 **IpAddress** | Pointer to **string** | IP address from which the action was performed | [optional] 
 **UserAgent** | Pointer to **string** | User agent string from the client | [optional] 
@@ -77,20 +77,20 @@ HasVault returns a boolean if a field has been set.
 
 ### GetApiKey
 
-`func (o *AuditLog) GetApiKey() APIKey`
+`func (o *AuditLog) GetApiKey() VaultAPIKey`
 
 GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
 
 ### GetApiKeyOk
 
-`func (o *AuditLog) GetApiKeyOk() (*APIKey, bool)`
+`func (o *AuditLog) GetApiKeyOk() (*VaultAPIKey, bool)`
 
 GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiKey
 
-`func (o *AuditLog) SetApiKey(v APIKey)`
+`func (o *AuditLog) SetApiKey(v VaultAPIKey)`
 
 SetApiKey sets ApiKey field to given value.
 

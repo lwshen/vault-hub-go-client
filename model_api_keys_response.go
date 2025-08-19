@@ -21,7 +21,7 @@ var _ MappedNullable = &APIKeysResponse{}
 
 // APIKeysResponse struct for APIKeysResponse
 type APIKeysResponse struct {
-	ApiKeys []APIKey `json:"apiKeys"`
+	ApiKeys []VaultAPIKey `json:"apiKeys"`
 	// Total number of API keys
 	TotalCount int32 `json:"totalCount"`
 	// Number of API keys per page
@@ -36,7 +36,7 @@ type _APIKeysResponse APIKeysResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIKeysResponse(apiKeys []APIKey, totalCount int32, pageSize int32, pageIndex int32) *APIKeysResponse {
+func NewAPIKeysResponse(apiKeys []VaultAPIKey, totalCount int32, pageSize int32, pageIndex int32) *APIKeysResponse {
 	this := APIKeysResponse{}
 	this.ApiKeys = apiKeys
 	this.TotalCount = totalCount
@@ -54,9 +54,9 @@ func NewAPIKeysResponseWithDefaults() *APIKeysResponse {
 }
 
 // GetApiKeys returns the ApiKeys field value
-func (o *APIKeysResponse) GetApiKeys() []APIKey {
+func (o *APIKeysResponse) GetApiKeys() []VaultAPIKey {
 	if o == nil {
-		var ret []APIKey
+		var ret []VaultAPIKey
 		return ret
 	}
 
@@ -65,7 +65,7 @@ func (o *APIKeysResponse) GetApiKeys() []APIKey {
 
 // GetApiKeysOk returns a tuple with the ApiKeys field value
 // and a boolean to check if the value has been set.
-func (o *APIKeysResponse) GetApiKeysOk() ([]APIKey, bool) {
+func (o *APIKeysResponse) GetApiKeysOk() ([]VaultAPIKey, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *APIKeysResponse) GetApiKeysOk() ([]APIKey, bool) {
 }
 
 // SetApiKeys sets field value
-func (o *APIKeysResponse) SetApiKeys(v []APIKey) {
+func (o *APIKeysResponse) SetApiKeys(v []VaultAPIKey) {
 	o.ApiKeys = v
 }
 

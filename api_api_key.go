@@ -421,20 +421,6 @@ func (a *APIKeyAPIService) GetVaultByAPIKeyExecute(r ApiGetVaultByAPIKeyRequest)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-API-Key"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -538,20 +524,6 @@ func (a *APIKeyAPIService) GetVaultByNameAPIKeyExecute(r ApiGetVaultByNameAPIKey
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-API-Key"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -651,20 +623,6 @@ func (a *APIKeyAPIService) GetVaultsByAPIKeyExecute(r ApiGetVaultsByAPIKeyReques
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["X-API-Key"] = key
-			}
-		}
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -714,7 +672,7 @@ func (r ApiUpdateAPIKeyRequest) UpdateAPIKeyRequest(updateAPIKeyRequest UpdateAP
 	return r
 }
 
-func (r ApiUpdateAPIKeyRequest) Execute() (*APIKey, *http.Response, error) {
+func (r ApiUpdateAPIKeyRequest) Execute() (*VaultAPIKey, *http.Response, error) {
 	return r.ApiService.UpdateAPIKeyExecute(r)
 }
 
@@ -736,13 +694,13 @@ func (a *APIKeyAPIService) UpdateAPIKey(ctx context.Context, id int64) ApiUpdate
 }
 
 // Execute executes the request
-//  @return APIKey
-func (a *APIKeyAPIService) UpdateAPIKeyExecute(r ApiUpdateAPIKeyRequest) (*APIKey, *http.Response, error) {
+//  @return VaultAPIKey
+func (a *APIKeyAPIService) UpdateAPIKeyExecute(r ApiUpdateAPIKeyRequest) (*VaultAPIKey, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *APIKey
+		localVarReturnValue  *VaultAPIKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "APIKeyAPIService.UpdateAPIKey")

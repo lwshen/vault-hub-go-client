@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -405,7 +405,7 @@ Other parameters are passed through a pointer to a apiGetVaultsByAPIKeyRequest s
 
 ### Authorization
 
-[ApiKeyAuth](../README.md#ApiKeyAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -419,7 +419,7 @@ Other parameters are passed through a pointer to a apiGetVaultsByAPIKeyRequest s
 
 ## UpdateAPIKey
 
-> APIKey UpdateAPIKey(ctx, id).UpdateAPIKeyRequest(updateAPIKeyRequest).Execute()
+> VaultAPIKey UpdateAPIKey(ctx, id).UpdateAPIKeyRequest(updateAPIKeyRequest).Execute()
 
 
 
@@ -448,7 +448,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `APIKeyAPI.UpdateAPIKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `UpdateAPIKey`: APIKey
+	// response from `UpdateAPIKey`: VaultAPIKey
 	fmt.Fprintf(os.Stdout, "Response from `APIKeyAPI.UpdateAPIKey`: %v\n", resp)
 }
 ```
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIKey**](APIKey.md)
+[**VaultAPIKey**](VaultAPIKey.md)
 
 ### Authorization
 

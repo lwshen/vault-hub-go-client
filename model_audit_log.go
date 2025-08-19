@@ -25,7 +25,7 @@ type AuditLog struct {
 	// When the action occurred
 	CreatedAt time.Time `json:"createdAt"`
 	Vault *VaultLite `json:"vault,omitempty"`
-	ApiKey *APIKey `json:"apiKey,omitempty"`
+	ApiKey *VaultAPIKey `json:"apiKey,omitempty"`
 	// Type of action performed
 	Action string `json:"action"`
 	// IP address from which the action was performed
@@ -112,9 +112,9 @@ func (o *AuditLog) SetVault(v VaultLite) {
 }
 
 // GetApiKey returns the ApiKey field value if set, zero value otherwise.
-func (o *AuditLog) GetApiKey() APIKey {
+func (o *AuditLog) GetApiKey() VaultAPIKey {
 	if o == nil || IsNil(o.ApiKey) {
-		var ret APIKey
+		var ret VaultAPIKey
 		return ret
 	}
 	return *o.ApiKey
@@ -122,7 +122,7 @@ func (o *AuditLog) GetApiKey() APIKey {
 
 // GetApiKeyOk returns a tuple with the ApiKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuditLog) GetApiKeyOk() (*APIKey, bool) {
+func (o *AuditLog) GetApiKeyOk() (*VaultAPIKey, bool) {
 	if o == nil || IsNil(o.ApiKey) {
 		return nil, false
 	}
@@ -138,8 +138,8 @@ func (o *AuditLog) HasApiKey() bool {
 	return false
 }
 
-// SetApiKey gets a reference to the given APIKey and assigns it to the ApiKey field.
-func (o *AuditLog) SetApiKey(v APIKey) {
+// SetApiKey gets a reference to the given VaultAPIKey and assigns it to the ApiKey field.
+func (o *AuditLog) SetApiKey(v VaultAPIKey) {
 	o.ApiKey = &v
 }
 

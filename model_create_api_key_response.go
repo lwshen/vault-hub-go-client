@@ -21,7 +21,7 @@ var _ MappedNullable = &CreateAPIKeyResponse{}
 
 // CreateAPIKeyResponse struct for CreateAPIKeyResponse
 type CreateAPIKeyResponse struct {
-	ApiKey APIKey `json:"apiKey"`
+	ApiKey VaultAPIKey `json:"apiKey"`
 	// The generated API key (only shown once)
 	Key string `json:"key"`
 }
@@ -32,7 +32,7 @@ type _CreateAPIKeyResponse CreateAPIKeyResponse
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateAPIKeyResponse(apiKey APIKey, key string) *CreateAPIKeyResponse {
+func NewCreateAPIKeyResponse(apiKey VaultAPIKey, key string) *CreateAPIKeyResponse {
 	this := CreateAPIKeyResponse{}
 	this.ApiKey = apiKey
 	this.Key = key
@@ -48,9 +48,9 @@ func NewCreateAPIKeyResponseWithDefaults() *CreateAPIKeyResponse {
 }
 
 // GetApiKey returns the ApiKey field value
-func (o *CreateAPIKeyResponse) GetApiKey() APIKey {
+func (o *CreateAPIKeyResponse) GetApiKey() VaultAPIKey {
 	if o == nil {
-		var ret APIKey
+		var ret VaultAPIKey
 		return ret
 	}
 
@@ -59,7 +59,7 @@ func (o *CreateAPIKeyResponse) GetApiKey() APIKey {
 
 // GetApiKeyOk returns a tuple with the ApiKey field value
 // and a boolean to check if the value has been set.
-func (o *CreateAPIKeyResponse) GetApiKeyOk() (*APIKey, bool) {
+func (o *CreateAPIKeyResponse) GetApiKeyOk() (*VaultAPIKey, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *CreateAPIKeyResponse) GetApiKeyOk() (*APIKey, bool) {
 }
 
 // SetApiKey sets field value
-func (o *CreateAPIKeyResponse) SetApiKey(v APIKey) {
+func (o *CreateAPIKeyResponse) SetApiKey(v VaultAPIKey) {
 	o.ApiKey = v
 }
 

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApiKey** | [**APIKey**](APIKey.md) |  | 
+**ApiKey** | [**VaultAPIKey**](VaultAPIKey.md) |  | 
 **Key** | **string** | The generated API key (only shown once) | 
 
 ## Methods
 
 ### NewCreateAPIKeyResponse
 
-`func NewCreateAPIKeyResponse(apiKey APIKey, key string, ) *CreateAPIKeyResponse`
+`func NewCreateAPIKeyResponse(apiKey VaultAPIKey, key string, ) *CreateAPIKeyResponse`
 
 NewCreateAPIKeyResponse instantiates a new CreateAPIKeyResponse object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetApiKey
 
-`func (o *CreateAPIKeyResponse) GetApiKey() APIKey`
+`func (o *CreateAPIKeyResponse) GetApiKey() VaultAPIKey`
 
 GetApiKey returns the ApiKey field if non-nil, zero value otherwise.
 
 ### GetApiKeyOk
 
-`func (o *CreateAPIKeyResponse) GetApiKeyOk() (*APIKey, bool)`
+`func (o *CreateAPIKeyResponse) GetApiKeyOk() (*VaultAPIKey, bool)`
 
 GetApiKeyOk returns a tuple with the ApiKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApiKey
 
-`func (o *CreateAPIKeyResponse) SetApiKey(v APIKey)`
+`func (o *CreateAPIKeyResponse) SetApiKey(v VaultAPIKey)`
 
 SetApiKey sets ApiKey field to given value.
 

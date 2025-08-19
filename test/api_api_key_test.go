@@ -59,46 +59,6 @@ func Test_openapi_APIKeyAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test APIKeyAPIService GetVaultByAPIKey", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var uniqueId string
-
-		resp, httpRes, err := apiClient.APIKeyAPI.GetVaultByAPIKey(context.Background(), uniqueId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test APIKeyAPIService GetVaultByNameAPIKey", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var name string
-
-		resp, httpRes, err := apiClient.APIKeyAPI.GetVaultByNameAPIKey(context.Background(), name).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test APIKeyAPIService GetVaultsByAPIKey", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.APIKeyAPI.GetVaultsByAPIKey(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test APIKeyAPIService UpdateAPIKey", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

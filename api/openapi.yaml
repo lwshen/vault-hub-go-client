@@ -328,7 +328,7 @@ paths:
       security:
       - ApiKeyAuth: []
       tags:
-      - API Key
+      - Cli
   /api/cli/vault/{uniqueId}:
     get:
       description: Get a specific vault by Unique ID using API key
@@ -350,7 +350,7 @@ paths:
       security:
       - ApiKeyAuth: []
       tags:
-      - API Key
+      - Cli
   /api/cli/vault/name/{name}:
     get:
       description: Get a specific vault by name using API key
@@ -372,7 +372,7 @@ paths:
       security:
       - ApiKeyAuth: []
       tags:
-      - API Key
+      - Cli
 components:
   schemas:
     EnableClientEncryption:

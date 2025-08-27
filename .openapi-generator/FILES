@@ -10,6 +10,7 @@ api_cli.go
 api_default.go
 api_user.go
 api_vault.go
+api_version.go
 client.go
 configuration.go
 docs/APIKeyAPI.md
@@ -37,6 +38,8 @@ docs/Vault.md
 docs/VaultAPI.md
 docs/VaultAPIKey.md
 docs/VaultLite.md
+docs/VersionAPI.md
+docs/VersionResponse.md
 git_push.sh
 go.mod
 go.sum
@@ -58,6 +61,7 @@ model_update_vault_request.go
 model_vault.go
 model_vault_api_key.go
 model_vault_lite.go
+model_version_response.go
 response.go
 test/api_api_key_test.go
 test/api_audit_test.go
@@ -66,4 +70,5 @@ test/api_cli_test.go
 test/api_default_test.go
 test/api_user_test.go
 test/api_vault_test.go
+test/api_version_test.go
 utils.go

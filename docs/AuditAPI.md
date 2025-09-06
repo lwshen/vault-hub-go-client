@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAuditLogs**](AuditAPI.md#GetAuditLogs) | **Get** /api/audit-logs | 
+[**GetAuditMetrics**](AuditAPI.md#GetAuditMetrics) | **Get** /api/audit-logs/metrics | 
 
 
 
@@ -68,6 +69,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AuditLogsResponse**](AuditLogsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAuditMetrics
+
+> AuditMetricsResponse GetAuditMetrics(ctx).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lwshen/vault-hub-go-client"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuditAPI.GetAuditMetrics(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuditAPI.GetAuditMetrics``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetAuditMetrics`: AuditMetricsResponse
+	fmt.Fprintf(os.Stdout, "Response from `AuditAPI.GetAuditMetrics`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAuditMetricsRequest struct via the builder pattern
+
+
+### Return type
+
+[**AuditMetricsResponse**](AuditMetricsResponse.md)
 
 ### Authorization
 

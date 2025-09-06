@@ -234,6 +234,19 @@ paths:
           description: List of audit logs
       tags:
       - Audit
+  /api/audit-logs/metrics:
+    get:
+      description: Get audit log metrics including total events and categorized counts
+      operationId: getAuditMetrics
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditMetricsResponse'
+          description: Audit log metrics
+      tags:
+      - Audit
   /api/api-keys:
     get:
       description: Get API keys for the current user with pagination
@@ -745,6 +758,31 @@ components:
       - action
       - createdAt
       - userId
+      type: object
+    AuditMetricsResponse:
+      example:
+        apiKeyEventsLast30Days: 5
+        vaultEventsLast30Days: 1
+        eventsCountLast24Hours: 6
+        totalEventsLast30Days: 0
+      properties:
+        totalEventsLast30Days:
+          description: Total number of audit events in the last 30 days
+          type: integer
+        eventsCountLast24Hours:
+          description: Number of audit events in the last 24 hours
+          type: integer
+        vaultEventsLast30Days:
+          description: Number of vault-related events in the last 30 days
+          type: integer
+        apiKeyEventsLast30Days:
+          description: Number of API key-related events in the last 30 days
+          type: integer
+      required:
+      - apiKeyEventsLast30Days
+      - eventsCountLast24Hours
+      - totalEventsLast30Days
+      - vaultEventsLast30Days
       type: object
     APIKeysResponse:
       example:

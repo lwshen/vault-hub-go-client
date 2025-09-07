@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Human-readable name for the API key | [optional] 
 **VaultUniqueIds** | Pointer to **[]string** | Array of vault unique IDs this key can access (empty &#x3D; all user&#39;s vaults) | [optional] 
 **ExpiresAt** | Pointer to **time.Time** | Optional expiration date | [optional] 
-**IsActive** | Pointer to **bool** | Enable or disable the API key | [optional] 
 
 ## Methods
 
@@ -102,31 +101,6 @@ SetExpiresAt sets ExpiresAt field to given value.
 `func (o *UpdateAPIKeyRequest) HasExpiresAt() bool`
 
 HasExpiresAt returns a boolean if a field has been set.
-
-### GetIsActive
-
-`func (o *UpdateAPIKeyRequest) GetIsActive() bool`
-
-GetIsActive returns the IsActive field if non-nil, zero value otherwise.
-
-### GetIsActiveOk
-
-`func (o *UpdateAPIKeyRequest) GetIsActiveOk() (*bool, bool)`
-
-GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsActive
-
-`func (o *UpdateAPIKeyRequest) SetIsActive(v bool)`
-
-SetIsActive sets IsActive field to given value.
-
-### HasIsActive
-
-`func (o *UpdateAPIKeyRequest) HasIsActive() bool`
-
-HasIsActive returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

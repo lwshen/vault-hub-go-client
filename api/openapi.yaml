@@ -969,7 +969,6 @@ components:
         vaultUniqueIds:
         - vaultUniqueIds
         - vaultUniqueIds
-        isActive: true
         expiresAt: 2000-01-23T04:56:07.000+00:00
       properties:
         name:
@@ -987,9 +986,6 @@ components:
           description: Optional expiration date
           format: date-time
           type: string
-        isActive:
-          description: Enable or disable the API key
-          type: boolean
       type: object
     VersionResponse:
       example:

@@ -26,8 +26,6 @@ type UpdateAPIKeyRequest struct {
 	VaultUniqueIds []string `json:"vaultUniqueIds,omitempty"`
 	// Optional expiration date
 	ExpiresAt *time.Time `json:"expiresAt,omitempty"`
-	// Enable or disable the API key
-	IsActive *bool `json:"isActive,omitempty"`
 }
 
 // NewUpdateAPIKeyRequest instantiates a new UpdateAPIKeyRequest object
@@ -143,38 +141,6 @@ func (o *UpdateAPIKeyRequest) SetExpiresAt(v time.Time) {
 	o.ExpiresAt = &v
 }
 
-// GetIsActive returns the IsActive field value if set, zero value otherwise.
-func (o *UpdateAPIKeyRequest) GetIsActive() bool {
-	if o == nil || IsNil(o.IsActive) {
-		var ret bool
-		return ret
-	}
-	return *o.IsActive
-}
-
-// GetIsActiveOk returns a tuple with the IsActive field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *UpdateAPIKeyRequest) GetIsActiveOk() (*bool, bool) {
-	if o == nil || IsNil(o.IsActive) {
-		return nil, false
-	}
-	return o.IsActive, true
-}
-
-// HasIsActive returns a boolean if a field has been set.
-func (o *UpdateAPIKeyRequest) HasIsActive() bool {
-	if o != nil && !IsNil(o.IsActive) {
-		return true
-	}
-
-	return false
-}
-
-// SetIsActive gets a reference to the given bool and assigns it to the IsActive field.
-func (o *UpdateAPIKeyRequest) SetIsActive(v bool) {
-	o.IsActive = &v
-}
-
 func (o UpdateAPIKeyRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -193,9 +159,6 @@ func (o UpdateAPIKeyRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ExpiresAt) {
 		toSerialize["expiresAt"] = o.ExpiresAt
-	}
-	if !IsNil(o.IsActive) {
-		toSerialize["isActive"] = o.IsActive
 	}
 	return toSerialize, nil
 }

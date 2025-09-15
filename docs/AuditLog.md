@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Vault** | Pointer to [**VaultLite**](VaultLite.md) |  | [optional] 
 **ApiKey** | Pointer to [**VaultAPIKey**](VaultAPIKey.md) |  | [optional] 
 **Action** | **string** | Type of action performed | 
+**Source** | **string** | Source of the request (web interface or CLI) | 
 **IpAddress** | Pointer to **string** | IP address from which the action was performed | [optional] 
 **UserAgent** | Pointer to **string** | User agent string from the client | [optional] 
 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewAuditLog
 
-`func NewAuditLog(createdAt time.Time, action string, ) *AuditLog`
+`func NewAuditLog(createdAt time.Time, action string, source string, ) *AuditLog`
 
 NewAuditLog instantiates a new AuditLog object
 This constructor will assign default values to properties that have it defined,
@@ -118,6 +119,26 @@ and a boolean to check if the value has been set.
 `func (o *AuditLog) SetAction(v string)`
 
 SetAction sets Action field to given value.
+
+
+### GetSource
+
+`func (o *AuditLog) GetSource() string`
+
+GetSource returns the Source field if non-nil, zero value otherwise.
+
+### GetSourceOk
+
+`func (o *AuditLog) GetSourceOk() (*string, bool)`
+
+GetSourceOk returns a tuple with the Source field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSource
+
+`func (o *AuditLog) SetSource(v string)`
+
+SetSource sets Source field to given value.
 
 
 ### GetIpAddress

@@ -28,6 +28,8 @@ type AuditLog struct {
 	ApiKey *VaultAPIKey `json:"apiKey,omitempty"`
 	// Type of action performed
 	Action string `json:"action"`
+	// Source of the request (web interface or CLI)
+	Source string `json:"source"`
 	// IP address from which the action was performed
 	IpAddress *string `json:"ipAddress,omitempty"`
 	// User agent string from the client
@@ -40,10 +42,11 @@ type _AuditLog AuditLog
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAuditLog(createdAt time.Time, action string) *AuditLog {
+func NewAuditLog(createdAt time.Time, action string, source string) *AuditLog {
 	this := AuditLog{}
 	this.CreatedAt = createdAt
 	this.Action = action
+	this.Source = source
 	return &this
 }
 
@@ -167,6 +170,30 @@ func (o *AuditLog) SetAction(v string) {
 	o.Action = v
 }
 
+// GetSource returns the Source field value
+func (o *AuditLog) GetSource() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Source
+}
+
+// GetSourceOk returns a tuple with the Source field value
+// and a boolean to check if the value has been set.
+func (o *AuditLog) GetSourceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Source, true
+}
+
+// SetSource sets field value
+func (o *AuditLog) SetSource(v string) {
+	o.Source = v
+}
+
 // GetIpAddress returns the IpAddress field value if set, zero value otherwise.
 func (o *AuditLog) GetIpAddress() string {
 	if o == nil || IsNil(o.IpAddress) {
@@ -249,6 +276,7 @@ func (o AuditLog) ToMap() (map[string]interface{}, error) {
 		toSerialize["apiKey"] = o.ApiKey
 	}
 	toSerialize["action"] = o.Action
+	toSerialize["source"] = o.Source
 	if !IsNil(o.IpAddress) {
 		toSerialize["ipAddress"] = o.IpAddress
 	}
@@ -265,6 +293,7 @@ func (o *AuditLog) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"createdAt",
 		"action",
+		"source",
 	}
 
 	allProperties := make(map[string]interface{})

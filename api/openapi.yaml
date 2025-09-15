@@ -636,6 +636,7 @@ components:
           ipAddress: ipAddress
           action: read_vault
           userAgent: userAgent
+          source: web
           vault:
             name: name
             description: description
@@ -665,6 +666,7 @@ components:
           ipAddress: ipAddress
           action: read_vault
           userAgent: userAgent
+          source: web
           vault:
             name: name
             description: description
@@ -719,6 +721,7 @@ components:
         ipAddress: ipAddress
         action: read_vault
         userAgent: userAgent
+        source: web
         vault:
           name: name
           description: description
@@ -748,6 +751,12 @@ components:
           - update_api_key
           - delete_api_key
           type: string
+        source:
+          description: Source of the request (web interface or CLI)
+          enum:
+          - web
+          - cli
+          type: string
         ipAddress:
           description: IP address from which the action was performed
           type: string
@@ -757,6 +766,7 @@ components:
       required:
       - action
       - createdAt
+      - source
       - userId
       type: object
     AuditMetricsResponse:

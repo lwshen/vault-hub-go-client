@@ -16,20 +16,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/HealthCheckResponse'
           description: Service is healthy
-  /api/version:
+  /api/status:
     get:
-      description: Returns the current version and commit hash of the application
-      operationId: getVersion
+      description: "Returns comprehensive system status including version, health,\
+        \ and performance metrics"
+      operationId: getStatus
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VersionResponse'
-          description: Version information retrieved successfully
-      summary: Get version information
+                $ref: '#/components/schemas/StatusResponse'
+          description: System status retrieved successfully
+      summary: Get system status
       tags:
-      - Version
+      - Status
   /api/auth/login:
     post:
       description: Login with email and password
@@ -997,8 +998,10 @@ components:
           format: date-time
           type: string
       type: object
-    VersionResponse:
+    StatusResponse:
       example:
+        databaseStatus: healthy
+        systemStatus: healthy
         commit: abc1234
         version: v1.0.0
       properties:
@@ -1010,8 +1013,26 @@ components:
           description: Git commit hash
           example: abc1234
           type: string
+        systemStatus:
+          description: System operational status
+          enum:
+          - healthy
+          - degraded
+          - unavailable
+          example: healthy
+          type: string
+        databaseStatus:
+          description: Database connection status
+          enum:
+          - healthy
+          - degraded
+          - unavailable
+          example: healthy
+          type: string
       required:
       - commit
+      - databaseStatus
+      - systemStatus
       - version
       type: object
   securitySchemes:

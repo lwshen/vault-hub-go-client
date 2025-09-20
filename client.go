@@ -59,11 +59,11 @@ type APIClient struct {
 
 	DefaultAPI *DefaultAPIService
 
+	StatusAPI *StatusAPIService
+
 	UserAPI *UserAPIService
 
 	VaultAPI *VaultAPIService
-
-	VersionAPI *VersionAPIService
 }
 
 type service struct {
@@ -87,9 +87,9 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AuthAPI = (*AuthAPIService)(&c.common)
 	c.CliAPI = (*CliAPIService)(&c.common)
 	c.DefaultAPI = (*DefaultAPIService)(&c.common)
+	c.StatusAPI = (*StatusAPIService)(&c.common)
 	c.UserAPI = (*UserAPIService)(&c.common)
 	c.VaultAPI = (*VaultAPIService)(&c.common)
-	c.VersionAPI = (*VersionAPIService)(&c.common)
 
 	return c
 }

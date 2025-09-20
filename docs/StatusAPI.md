@@ -1,18 +1,18 @@
-# \VersionAPI
+# \StatusAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetVersion**](VersionAPI.md#GetVersion) | **Get** /api/version | Get version information
+[**GetStatus**](StatusAPI.md#GetStatus) | **Get** /api/status | Get system status
 
 
 
-## GetVersion
+## GetStatus
 
-> VersionResponse GetVersion(ctx).Execute()
+> StatusResponse GetStatus(ctx).Execute()
 
-Get version information
+Get system status
 
 
 
@@ -32,13 +32,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VersionAPI.GetVersion(context.Background()).Execute()
+	resp, r, err := apiClient.StatusAPI.GetStatus(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `VersionAPI.GetVersion``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `StatusAPI.GetStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetVersion`: VersionResponse
-	fmt.Fprintf(os.Stdout, "Response from `VersionAPI.GetVersion`: %v\n", resp)
+	// response from `GetStatus`: StatusResponse
+	fmt.Fprintf(os.Stdout, "Response from `StatusAPI.GetStatus`: %v\n", resp)
 }
 ```
 
@@ -48,12 +48,12 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetVersionRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetStatusRequest struct via the builder pattern
 
 
 ### Return type
 
-[**VersionResponse**](VersionResponse.md)
+[**StatusResponse**](StatusResponse.md)
 
 ### Authorization
 

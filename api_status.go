@@ -19,49 +19,49 @@ import (
 )
 
 
-// VersionAPIService VersionAPI service
-type VersionAPIService service
+// StatusAPIService StatusAPI service
+type StatusAPIService service
 
-type ApiGetVersionRequest struct {
+type ApiGetStatusRequest struct {
 	ctx context.Context
-	ApiService *VersionAPIService
+	ApiService *StatusAPIService
 }
 
-func (r ApiGetVersionRequest) Execute() (*VersionResponse, *http.Response, error) {
-	return r.ApiService.GetVersionExecute(r)
+func (r ApiGetStatusRequest) Execute() (*StatusResponse, *http.Response, error) {
+	return r.ApiService.GetStatusExecute(r)
 }
 
 /*
-GetVersion Get version information
+GetStatus Get system status
 
-Returns the current version and commit hash of the application
+Returns comprehensive system status including version, health, and performance metrics
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetVersionRequest
+ @return ApiGetStatusRequest
 */
-func (a *VersionAPIService) GetVersion(ctx context.Context) ApiGetVersionRequest {
-	return ApiGetVersionRequest{
+func (a *StatusAPIService) GetStatus(ctx context.Context) ApiGetStatusRequest {
+	return ApiGetStatusRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
 }
 
 // Execute executes the request
-//  @return VersionResponse
-func (a *VersionAPIService) GetVersionExecute(r ApiGetVersionRequest) (*VersionResponse, *http.Response, error) {
+//  @return StatusResponse
+func (a *StatusAPIService) GetStatusExecute(r ApiGetStatusRequest) (*StatusResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *VersionResponse
+		localVarReturnValue  *StatusResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "VersionAPIService.GetVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatusAPIService.GetStatus")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/version"
+	localVarPath := localBasePath + "/api/status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

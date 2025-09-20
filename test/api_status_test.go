@@ -1,7 +1,7 @@
 /*
 Vault Hub Server
 
-Testing VersionAPIService
+Testing StatusAPIService
 
 */
 
@@ -17,16 +17,16 @@ import (
 	openapiclient "github.com/lwshen/vault-hub-go-client"
 )
 
-func Test_openapi_VersionAPIService(t *testing.T) {
+func Test_openapi_StatusAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test VersionAPIService GetVersion", func(t *testing.T) {
+	t.Run("Test StatusAPIService GetStatus", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
-		resp, httpRes, err := apiClient.VersionAPI.GetVersion(context.Background()).Execute()
+		resp, httpRes, err := apiClient.StatusAPI.GetStatus(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

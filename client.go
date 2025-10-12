@@ -57,6 +57,8 @@ type APIClient struct {
 
 	CliAPI *CliAPIService
 
+	ConfigAPI *ConfigAPIService
+
 	DefaultAPI *DefaultAPIService
 
 	StatusAPI *StatusAPIService
@@ -86,6 +88,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AuditAPI = (*AuditAPIService)(&c.common)
 	c.AuthAPI = (*AuthAPIService)(&c.common)
 	c.CliAPI = (*CliAPIService)(&c.common)
+	c.ConfigAPI = (*ConfigAPIService)(&c.common)
 	c.DefaultAPI = (*DefaultAPIService)(&c.common)
 	c.StatusAPI = (*StatusAPIService)(&c.common)
 	c.UserAPI = (*UserAPIService)(&c.common)

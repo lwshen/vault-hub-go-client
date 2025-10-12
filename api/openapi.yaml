@@ -16,6 +16,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/HealthCheckResponse'
           description: Service is healthy
+  /api/config:
+    get:
+      description: Returns public configuration settings that don't require authentication
+        (no database operations)
+      operationId: getConfig
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigResponse'
+          description: Configuration retrieved successfully
+      summary: Get public configuration
+      tags:
+      - Config
   /api/status:
     get:
       description: "Returns comprehensive system status including version, health,\
@@ -1034,6 +1049,17 @@ components:
       - databaseStatus
       - systemStatus
       - version
+      type: object
+    ConfigResponse:
+      example:
+        oidcEnabled: false
+      properties:
+        oidcEnabled:
+          description: Whether OIDC authentication is enabled
+          example: false
+          type: boolean
+      required:
+      - oidcEnabled
       type: object
   securitySchemes:
     apiKeyAuth:

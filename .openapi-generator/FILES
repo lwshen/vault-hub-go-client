@@ -7,6 +7,7 @@ api_api_key.go
 api_audit.go
 api_auth.go
 api_cli.go
+api_config.go
 api_default.go
 api_status.go
 api_user.go
@@ -21,6 +22,8 @@ docs/AuditLogsResponse.md
 docs/AuditMetricsResponse.md
 docs/AuthAPI.md
 docs/CliAPI.md
+docs/ConfigAPI.md
+docs/ConfigResponse.md
 docs/CreateAPIKeyRequest.md
 docs/CreateAPIKeyResponse.md
 docs/CreateVaultRequest.md
@@ -48,6 +51,7 @@ model_api_keys_response.go
 model_audit_log.go
 model_audit_logs_response.go
 model_audit_metrics_response.go
+model_config_response.go
 model_create_api_key_request.go
 model_create_api_key_response.go
 model_create_vault_request.go
@@ -69,6 +73,7 @@ test/api_api_key_test.go
 test/api_audit_test.go
 test/api_auth_test.go
 test/api_cli_test.go
+test/api_config_test.go
 test/api_default_test.go
 test/api_status_test.go
 test/api_user_test.go

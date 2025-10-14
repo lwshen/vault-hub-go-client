@@ -16,38 +16,36 @@ import (
 	"fmt"
 )
 
-// checks if the LoginRequest type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &LoginRequest{}
+// checks if the PasswordResetRequest type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &PasswordResetRequest{}
 
-// LoginRequest struct for LoginRequest
-type LoginRequest struct {
+// PasswordResetRequest struct for PasswordResetRequest
+type PasswordResetRequest struct {
 	Email string `json:"email"`
-	Password string `json:"password"`
 }
 
-type _LoginRequest LoginRequest
+type _PasswordResetRequest PasswordResetRequest
 
-// NewLoginRequest instantiates a new LoginRequest object
+// NewPasswordResetRequest instantiates a new PasswordResetRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLoginRequest(email string, password string) *LoginRequest {
-	this := LoginRequest{}
+func NewPasswordResetRequest(email string) *PasswordResetRequest {
+	this := PasswordResetRequest{}
 	this.Email = email
-	this.Password = password
 	return &this
 }
 
-// NewLoginRequestWithDefaults instantiates a new LoginRequest object
+// NewPasswordResetRequestWithDefaults instantiates a new PasswordResetRequest object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewLoginRequestWithDefaults() *LoginRequest {
-	this := LoginRequest{}
+func NewPasswordResetRequestWithDefaults() *PasswordResetRequest {
+	this := PasswordResetRequest{}
 	return &this
 }
 
 // GetEmail returns the Email field value
-func (o *LoginRequest) GetEmail() string {
+func (o *PasswordResetRequest) GetEmail() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -58,7 +56,7 @@ func (o *LoginRequest) GetEmail() string {
 
 // GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
-func (o *LoginRequest) GetEmailOk() (*string, bool) {
+func (o *PasswordResetRequest) GetEmailOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -66,35 +64,11 @@ func (o *LoginRequest) GetEmailOk() (*string, bool) {
 }
 
 // SetEmail sets field value
-func (o *LoginRequest) SetEmail(v string) {
+func (o *PasswordResetRequest) SetEmail(v string) {
 	o.Email = v
 }
 
-// GetPassword returns the Password field value
-func (o *LoginRequest) GetPassword() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Password
-}
-
-// GetPasswordOk returns a tuple with the Password field value
-// and a boolean to check if the value has been set.
-func (o *LoginRequest) GetPasswordOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Password, true
-}
-
-// SetPassword sets field value
-func (o *LoginRequest) SetPassword(v string) {
-	o.Password = v
-}
-
-func (o LoginRequest) MarshalJSON() ([]byte, error) {
+func (o PasswordResetRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -102,20 +76,18 @@ func (o LoginRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o LoginRequest) ToMap() (map[string]interface{}, error) {
+func (o PasswordResetRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["email"] = o.Email
-	toSerialize["password"] = o.Password
 	return toSerialize, nil
 }
 
-func (o *LoginRequest) UnmarshalJSON(data []byte) (err error) {
+func (o *PasswordResetRequest) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"email",
-		"password",
 	}
 
 	allProperties := make(map[string]interface{})
@@ -132,53 +104,53 @@ func (o *LoginRequest) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varLoginRequest := _LoginRequest{}
+	varPasswordResetRequest := _PasswordResetRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varLoginRequest)
+	err = decoder.Decode(&varPasswordResetRequest)
 
 	if err != nil {
 		return err
 	}
 
-	*o = LoginRequest(varLoginRequest)
+	*o = PasswordResetRequest(varPasswordResetRequest)
 
 	return err
 }
 
-type NullableLoginRequest struct {
-	value *LoginRequest
+type NullablePasswordResetRequest struct {
+	value *PasswordResetRequest
 	isSet bool
 }
 
-func (v NullableLoginRequest) Get() *LoginRequest {
+func (v NullablePasswordResetRequest) Get() *PasswordResetRequest {
 	return v.value
 }
 
-func (v *NullableLoginRequest) Set(val *LoginRequest) {
+func (v *NullablePasswordResetRequest) Set(val *PasswordResetRequest) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableLoginRequest) IsSet() bool {
+func (v NullablePasswordResetRequest) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableLoginRequest) Unset() {
+func (v *NullablePasswordResetRequest) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableLoginRequest(val *LoginRequest) *NullableLoginRequest {
-	return &NullableLoginRequest{value: val, isSet: true}
+func NewNullablePasswordResetRequest(val *PasswordResetRequest) *NullablePasswordResetRequest {
+	return &NullablePasswordResetRequest{value: val, isSet: true}
 }
 
-func (v NullableLoginRequest) MarshalJSON() ([]byte, error) {
+func (v NullablePasswordResetRequest) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableLoginRequest) UnmarshalJSON(src []byte) error {
+func (v *NullablePasswordResetRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -33,6 +33,9 @@ docs/GetUserResponse.md
 docs/HealthCheckResponse.md
 docs/LoginRequest.md
 docs/LoginResponse.md
+docs/MagicLinkRequest.md
+docs/PasswordResetConfirmRequest.md
+docs/PasswordResetRequest.md
 docs/SignupRequest.md
 docs/SignupResponse.md
 docs/StatusAPI.md
@@ -60,6 +63,9 @@ model_get_user_response.go
 model_health_check_response.go
 model_login_request.go
 model_login_response.go
+model_magic_link_request.go
+model_password_reset_confirm_request.go
+model_password_reset_request.go
 model_signup_request.go
 model_signup_response.go
 model_status_response.go

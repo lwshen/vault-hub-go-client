@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.1
+  version: 1.0.2
 servers:
 - url: /
 paths:
@@ -91,6 +91,66 @@ paths:
       responses:
         "200":
           description: OK
+      tags:
+      - Auth
+  /api/auth/password/reset/request:
+    post:
+      description: Request a password reset email
+      operationId: requestPasswordReset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+        required: true
+      responses:
+        "200":
+          description: Email sent (if account exists)
+      tags:
+      - Auth
+  /api/auth/password/reset/confirm:
+    post:
+      description: Confirm password reset with token
+      operationId: confirmPasswordReset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
+        required: true
+      responses:
+        "200":
+          description: Password updated
+      tags:
+      - Auth
+  /api/auth/magic-link/request:
+    post:
+      description: Request a magic link login email
+      operationId: requestMagicLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MagicLinkRequest'
+        required: true
+      responses:
+        "200":
+          description: Email sent (if account exists)
+      tags:
+      - Auth
+  /auth/ml:
+    get:
+      description: Consume magic link token and redirect with JWT
+      operationId: consumeMagicLink
+      parameters:
+      - in: query
+        name: token
+        required: true
+        schema:
+          type: string
+      responses:
+        "302":
+          description: Redirect to frontend with token fragment
       tags:
       - Auth
   /api/user:
@@ -1060,6 +1120,39 @@ components:
           type: boolean
       required:
       - oidcEnabled
+      type: object
+    PasswordResetRequest:
+      example:
+        email: email
+      properties:
+        email:
+          format: email
+          type: string
+      required:
+      - email
+      type: object
+    PasswordResetConfirmRequest:
+      example:
+        newPassword: newPassword
+        token: token
+      properties:
+        token:
+          type: string
+        newPassword:
+          type: string
+      required:
+      - newPassword
+      - token
+      type: object
+    MagicLinkRequest:
+      example:
+        email: email
+      properties:
+        email:
+          format: email
+          type: string
+      required:
+      - email
       type: object
   securitySchemes:
     apiKeyAuth:

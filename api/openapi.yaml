@@ -138,7 +138,7 @@ paths:
           description: Email sent (if account exists)
       tags:
       - Auth
-  /auth/ml:
+  /api/auth/magic-link/token:
     get:
       description: Consume magic link token and redirect with JWT
       operationId: consumeMagicLink

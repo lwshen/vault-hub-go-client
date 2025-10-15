@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ConfirmPasswordReset**](AuthAPI.md#ConfirmPasswordReset) | **Post** /api/auth/password/reset/confirm | 
-[**ConsumeMagicLink**](AuthAPI.md#ConsumeMagicLink) | **Get** /auth/ml | 
+[**ConsumeMagicLink**](AuthAPI.md#ConsumeMagicLink) | **Get** /api/auth/magic-link/token | 
 [**Login**](AuthAPI.md#Login) | **Post** /api/auth/login | 
 [**Logout**](AuthAPI.md#Logout) | **Get** /api/auth/logout | 
 [**RequestMagicLink**](AuthAPI.md#RequestMagicLink) | **Post** /api/auth/magic-link/request | 

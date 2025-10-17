@@ -28,6 +28,7 @@ docs/CreateAPIKeyRequest.md
 docs/CreateAPIKeyResponse.md
 docs/CreateVaultRequest.md
 docs/DefaultAPI.md
+docs/EmailTokenResponse.md
 docs/EnableClientEncryption.md
 docs/GetUserResponse.md
 docs/HealthCheckResponse.md
@@ -58,6 +59,7 @@ model_config_response.go
 model_create_api_key_request.go
 model_create_api_key_response.go
 model_create_vault_request.go
+model_email_token_response.go
 model_enable_client_encryption.go
 model_get_user_response.go
 model_health_check_response.go

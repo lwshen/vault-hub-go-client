@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.2
+  version: 1.0.3
 servers:
 - url: /
 paths:
@@ -105,7 +105,28 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
           description: Email sent (if account exists)
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
+          description: Too many requests for this user
+          headers:
+            Retry-After:
+              schema:
+                description: Seconds until another request can be made
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
+          description: Unable to send email
       tags:
       - Auth
   /api/auth/password/reset/confirm:
@@ -135,7 +156,28 @@ paths:
         required: true
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
           description: Email sent (if account exists)
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
+          description: Too many requests for this user
+          headers:
+            Retry-After:
+              schema:
+                description: Seconds until another request can be made
+                type: string
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailTokenResponse'
+          description: Unable to send email
       tags:
       - Auth
   /api/auth/magic-link/token:
@@ -548,6 +590,58 @@ components:
           type: string
       required:
       - token
+      type: object
+    PasswordResetRequest:
+      example:
+        email: email
+      properties:
+        email:
+          format: email
+          type: string
+      required:
+      - email
+      type: object
+    PasswordResetConfirmRequest:
+      example:
+        newPassword: newPassword
+        token: token
+      properties:
+        token:
+          type: string
+        newPassword:
+          type: string
+      required:
+      - newPassword
+      - token
+      type: object
+    MagicLinkRequest:
+      example:
+        email: email
+      properties:
+        email:
+          format: email
+          type: string
+      required:
+      - email
+      type: object
+    EmailTokenResponse:
+      example:
+        code: email_token_sent
+        success: true
+      properties:
+        success:
+          description: Indicates whether the email token request was accepted
+          type: boolean
+        code:
+          description: Machine-readable status code describing the outcome
+          enum:
+          - email_token_sent
+          - email_token_rate_limited
+          - email_token_failed
+          type: string
+      required:
+      - code
+      - success
       type: object
     GetUserResponse:
       example:
@@ -1120,39 +1214,6 @@ components:
           type: boolean
       required:
       - oidcEnabled
-      type: object
-    PasswordResetRequest:
-      example:
-        email: email
-      properties:
-        email:
-          format: email
-          type: string
-      required:
-      - email
-      type: object
-    PasswordResetConfirmRequest:
-      example:
-        newPassword: newPassword
-        token: token
-      properties:
-        token:
-          type: string
-        newPassword:
-          type: string
-      required:
-      - newPassword
-      - token
-      type: object
-    MagicLinkRequest:
-      example:
-        email: email
-      properties:
-        email:
-          format: email
-          type: string
-      required:
-      - email
       type: object
   securitySchemes:
     apiKeyAuth:

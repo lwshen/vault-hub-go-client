@@ -218,7 +218,7 @@ No authorization required
 
 ## GetVaults
 
-> []VaultLite GetVaults(ctx).Execute()
+> VaultsResponse GetVaults(ctx).PageSize(pageSize).PageIndex(pageIndex).Execute()
 
 
 
@@ -237,31 +237,38 @@ import (
 )
 
 func main() {
+	pageSize := int32(56) // int32 | Number of vaults per page (default 20, max 1000) (optional) (default to 20)
+	pageIndex := int32(56) // int32 | Page index, starting from 1 (default 1) (optional) (default to 1)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VaultAPI.GetVaults(context.Background()).Execute()
+	resp, r, err := apiClient.VaultAPI.GetVaults(context.Background()).PageSize(pageSize).PageIndex(pageIndex).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VaultAPI.GetVaults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `GetVaults`: []VaultLite
+	// response from `GetVaults`: VaultsResponse
 	fmt.Fprintf(os.Stdout, "Response from `VaultAPI.GetVaults`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiGetVaultsRequest struct via the builder pattern
 
 
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int32** | Number of vaults per page (default 20, max 1000) | [default to 20]
+ **pageIndex** | **int32** | Page index, starting from 1 (default 1) | [default to 1]
+
 ### Return type
 
-[**[]VaultLite**](VaultLite.md)
+[**VaultsResponse**](VaultsResponse.md)
 
 ### Authorization
 

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.4
+  version: 1.0.5
 servers:
 - url: /
 paths:
@@ -212,15 +212,29 @@ paths:
     get:
       description: Get all vaults for the current user
       operationId: getVaults
+      parameters:
+      - description: "Number of vaults per page (default 20, max 1000)"
+        in: query
+        name: pageSize
+        schema:
+          default: 20
+          maximum: 1000
+          minimum: 1
+          type: integer
+      - description: "Page index, starting from 1 (default 1)"
+        in: query
+        name: pageIndex
+        schema:
+          default: 1
+          minimum: 1
+          type: integer
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/VaultLite'
-                type: array
-          description: List of vaults
+                $ref: '#/components/schemas/VaultsResponse'
+          description: Paginated list of vaults
       tags:
       - Vault
     post:
@@ -1220,6 +1234,43 @@ components:
       required:
       - emailEnabled
       - oidcEnabled
+      type: object
+    VaultsResponse:
+      example:
+        pageIndex: 1
+        vaults:
+        - name: name
+          description: description
+          category: category
+          uniqueId: uniqueId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - name: name
+          description: description
+          category: category
+          uniqueId: uniqueId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        pageSize: 6
+        totalCount: 0
+      properties:
+        vaults:
+          description: Page of vault records for the authenticated user
+          items:
+            $ref: '#/components/schemas/VaultLite'
+          type: array
+        totalCount:
+          description: Total number of vaults available for pagination
+          type: integer
+        pageSize:
+          description: Number of vaults returned per page
+          type: integer
+        pageIndex:
+          description: Current page index (starting from 1)
+          type: integer
+      required:
+      - pageIndex
+      - pageSize
+      - totalCount
+      - vaults
       type: object
   securitySchemes:
     apiKeyAuth:

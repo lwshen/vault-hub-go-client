@@ -16,69 +16,70 @@ import (
 	"fmt"
 )
 
-// checks if the APIKeysResponse type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &APIKeysResponse{}
+// checks if the VaultsResponse type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &VaultsResponse{}
 
-// APIKeysResponse struct for APIKeysResponse
-type APIKeysResponse struct {
-	ApiKeys []VaultAPIKey `json:"apiKeys"`
-	// Total number of API keys
+// VaultsResponse struct for VaultsResponse
+type VaultsResponse struct {
+	// Page of vault records for the authenticated user
+	Vaults []VaultLite `json:"vaults"`
+	// Total number of vaults available for pagination
 	TotalCount int32 `json:"totalCount"`
-	// Number of API keys per page
+	// Number of vaults returned per page
 	PageSize int32 `json:"pageSize"`
 	// Current page index (starting from 1)
 	PageIndex int32 `json:"pageIndex"`
 }
 
-type _APIKeysResponse APIKeysResponse
+type _VaultsResponse VaultsResponse
 
-// NewAPIKeysResponse instantiates a new APIKeysResponse object
+// NewVaultsResponse instantiates a new VaultsResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAPIKeysResponse(apiKeys []VaultAPIKey, totalCount int32, pageSize int32, pageIndex int32) *APIKeysResponse {
-	this := APIKeysResponse{}
-	this.ApiKeys = apiKeys
+func NewVaultsResponse(vaults []VaultLite, totalCount int32, pageSize int32, pageIndex int32) *VaultsResponse {
+	this := VaultsResponse{}
+	this.Vaults = vaults
 	this.TotalCount = totalCount
 	this.PageSize = pageSize
 	this.PageIndex = pageIndex
 	return &this
 }
 
-// NewAPIKeysResponseWithDefaults instantiates a new APIKeysResponse object
+// NewVaultsResponseWithDefaults instantiates a new VaultsResponse object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewAPIKeysResponseWithDefaults() *APIKeysResponse {
-	this := APIKeysResponse{}
+func NewVaultsResponseWithDefaults() *VaultsResponse {
+	this := VaultsResponse{}
 	return &this
 }
 
-// GetApiKeys returns the ApiKeys field value
-func (o *APIKeysResponse) GetApiKeys() []VaultAPIKey {
+// GetVaults returns the Vaults field value
+func (o *VaultsResponse) GetVaults() []VaultLite {
 	if o == nil {
-		var ret []VaultAPIKey
+		var ret []VaultLite
 		return ret
 	}
 
-	return o.ApiKeys
+	return o.Vaults
 }
 
-// GetApiKeysOk returns a tuple with the ApiKeys field value
+// GetVaultsOk returns a tuple with the Vaults field value
 // and a boolean to check if the value has been set.
-func (o *APIKeysResponse) GetApiKeysOk() ([]VaultAPIKey, bool) {
+func (o *VaultsResponse) GetVaultsOk() ([]VaultLite, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.ApiKeys, true
+	return o.Vaults, true
 }
 
-// SetApiKeys sets field value
-func (o *APIKeysResponse) SetApiKeys(v []VaultAPIKey) {
-	o.ApiKeys = v
+// SetVaults sets field value
+func (o *VaultsResponse) SetVaults(v []VaultLite) {
+	o.Vaults = v
 }
 
 // GetTotalCount returns the TotalCount field value
-func (o *APIKeysResponse) GetTotalCount() int32 {
+func (o *VaultsResponse) GetTotalCount() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -89,7 +90,7 @@ func (o *APIKeysResponse) GetTotalCount() int32 {
 
 // GetTotalCountOk returns a tuple with the TotalCount field value
 // and a boolean to check if the value has been set.
-func (o *APIKeysResponse) GetTotalCountOk() (*int32, bool) {
+func (o *VaultsResponse) GetTotalCountOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,12 +98,12 @@ func (o *APIKeysResponse) GetTotalCountOk() (*int32, bool) {
 }
 
 // SetTotalCount sets field value
-func (o *APIKeysResponse) SetTotalCount(v int32) {
+func (o *VaultsResponse) SetTotalCount(v int32) {
 	o.TotalCount = v
 }
 
 // GetPageSize returns the PageSize field value
-func (o *APIKeysResponse) GetPageSize() int32 {
+func (o *VaultsResponse) GetPageSize() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -113,7 +114,7 @@ func (o *APIKeysResponse) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value
 // and a boolean to check if the value has been set.
-func (o *APIKeysResponse) GetPageSizeOk() (*int32, bool) {
+func (o *VaultsResponse) GetPageSizeOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -121,12 +122,12 @@ func (o *APIKeysResponse) GetPageSizeOk() (*int32, bool) {
 }
 
 // SetPageSize sets field value
-func (o *APIKeysResponse) SetPageSize(v int32) {
+func (o *VaultsResponse) SetPageSize(v int32) {
 	o.PageSize = v
 }
 
 // GetPageIndex returns the PageIndex field value
-func (o *APIKeysResponse) GetPageIndex() int32 {
+func (o *VaultsResponse) GetPageIndex() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -137,7 +138,7 @@ func (o *APIKeysResponse) GetPageIndex() int32 {
 
 // GetPageIndexOk returns a tuple with the PageIndex field value
 // and a boolean to check if the value has been set.
-func (o *APIKeysResponse) GetPageIndexOk() (*int32, bool) {
+func (o *VaultsResponse) GetPageIndexOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,11 +146,11 @@ func (o *APIKeysResponse) GetPageIndexOk() (*int32, bool) {
 }
 
 // SetPageIndex sets field value
-func (o *APIKeysResponse) SetPageIndex(v int32) {
+func (o *VaultsResponse) SetPageIndex(v int32) {
 	o.PageIndex = v
 }
 
-func (o APIKeysResponse) MarshalJSON() ([]byte, error) {
+func (o VaultsResponse) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -157,21 +158,21 @@ func (o APIKeysResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o APIKeysResponse) ToMap() (map[string]interface{}, error) {
+func (o VaultsResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["apiKeys"] = o.ApiKeys
+	toSerialize["vaults"] = o.Vaults
 	toSerialize["totalCount"] = o.TotalCount
 	toSerialize["pageSize"] = o.PageSize
 	toSerialize["pageIndex"] = o.PageIndex
 	return toSerialize, nil
 }
 
-func (o *APIKeysResponse) UnmarshalJSON(data []byte) (err error) {
+func (o *VaultsResponse) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"apiKeys",
+		"vaults",
 		"totalCount",
 		"pageSize",
 		"pageIndex",
@@ -191,53 +192,53 @@ func (o *APIKeysResponse) UnmarshalJSON(data []byte) (err error) {
 		}
 	}
 
-	varAPIKeysResponse := _APIKeysResponse{}
+	varVaultsResponse := _VaultsResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varAPIKeysResponse)
+	err = decoder.Decode(&varVaultsResponse)
 
 	if err != nil {
 		return err
 	}
 
-	*o = APIKeysResponse(varAPIKeysResponse)
+	*o = VaultsResponse(varVaultsResponse)
 
 	return err
 }
 
-type NullableAPIKeysResponse struct {
-	value *APIKeysResponse
+type NullableVaultsResponse struct {
+	value *VaultsResponse
 	isSet bool
 }
 
-func (v NullableAPIKeysResponse) Get() *APIKeysResponse {
+func (v NullableVaultsResponse) Get() *VaultsResponse {
 	return v.value
 }
 
-func (v *NullableAPIKeysResponse) Set(val *APIKeysResponse) {
+func (v *NullableVaultsResponse) Set(val *VaultsResponse) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAPIKeysResponse) IsSet() bool {
+func (v NullableVaultsResponse) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAPIKeysResponse) Unset() {
+func (v *NullableVaultsResponse) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAPIKeysResponse(val *APIKeysResponse) *NullableAPIKeysResponse {
-	return &NullableAPIKeysResponse{value: val, isSet: true}
+func NewNullableVaultsResponse(val *VaultsResponse) *NullableVaultsResponse {
+	return &NullableVaultsResponse{value: val, isSet: true}
 }
 
-func (v NullableAPIKeysResponse) MarshalJSON() ([]byte, error) {
+func (v NullableVaultsResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAPIKeysResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableVaultsResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

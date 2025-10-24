@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetVaultByAPIKey
 
-> Vault GetVaultByAPIKey(ctx, uniqueId).Execute()
+> Vault GetVaultByAPIKey(ctx, uniqueId).XEnableClientEncryption(xEnableClientEncryption).Execute()
 
 
 
@@ -32,10 +32,11 @@ import (
 
 func main() {
 	uniqueId := "uniqueId_example" // string | Vault Unique ID
+	xEnableClientEncryption := "xEnableClientEncryption_example" // string | Enable client-side encryption (server returns encrypted value) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CliAPI.GetVaultByAPIKey(context.Background(), uniqueId).Execute()
+	resp, r, err := apiClient.CliAPI.GetVaultByAPIKey(context.Background(), uniqueId).XEnableClientEncryption(xEnableClientEncryption).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CliAPI.GetVaultByAPIKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Other parameters are passed through a pointer to a apiGetVaultByAPIKeyRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **xEnableClientEncryption** | **string** | Enable client-side encryption (server returns encrypted value) | 
 
 ### Return type
 
@@ -82,7 +84,7 @@ No authorization required
 
 ## GetVaultByNameAPIKey
 
-> Vault GetVaultByNameAPIKey(ctx, name).Execute()
+> Vault GetVaultByNameAPIKey(ctx, name).XEnableClientEncryption(xEnableClientEncryption).Execute()
 
 
 
@@ -102,10 +104,11 @@ import (
 
 func main() {
 	name := "name_example" // string | Vault name
+	xEnableClientEncryption := "xEnableClientEncryption_example" // string | Enable client-side encryption (server returns encrypted value) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CliAPI.GetVaultByNameAPIKey(context.Background(), name).Execute()
+	resp, r, err := apiClient.CliAPI.GetVaultByNameAPIKey(context.Background(), name).XEnableClientEncryption(xEnableClientEncryption).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CliAPI.GetVaultByNameAPIKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,6 +134,7 @@ Other parameters are passed through a pointer to a apiGetVaultByNameAPIKeyReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **xEnableClientEncryption** | **string** | Enable client-side encryption (server returns encrypted value) | 
 
 ### Return type
 

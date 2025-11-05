@@ -27,13 +27,6 @@ type ApiGetVaultByAPIKeyRequest struct {
 	ctx context.Context
 	ApiService *CliAPIService
 	uniqueId string
-	xEnableClientEncryption *string
-}
-
-// Enable client-side encryption (server returns encrypted value)
-func (r ApiGetVaultByAPIKeyRequest) XEnableClientEncryption(xEnableClientEncryption string) ApiGetVaultByAPIKeyRequest {
-	r.xEnableClientEncryption = &xEnableClientEncryption
-	return r
 }
 
 func (r ApiGetVaultByAPIKeyRequest) Execute() (*Vault, *http.Response, error) {
@@ -96,9 +89,6 @@ func (a *CliAPIService) GetVaultByAPIKeyExecute(r ApiGetVaultByAPIKeyRequest) (*
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	if r.xEnableClientEncryption != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Enable-Client-Encryption", r.xEnableClientEncryption, "", "")
-	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -140,13 +130,6 @@ type ApiGetVaultByNameAPIKeyRequest struct {
 	ctx context.Context
 	ApiService *CliAPIService
 	name string
-	xEnableClientEncryption *string
-}
-
-// Enable client-side encryption (server returns encrypted value)
-func (r ApiGetVaultByNameAPIKeyRequest) XEnableClientEncryption(xEnableClientEncryption string) ApiGetVaultByNameAPIKeyRequest {
-	r.xEnableClientEncryption = &xEnableClientEncryption
-	return r
 }
 
 func (r ApiGetVaultByNameAPIKeyRequest) Execute() (*Vault, *http.Response, error) {
@@ -208,9 +191,6 @@ func (a *CliAPIService) GetVaultByNameAPIKeyExecute(r ApiGetVaultByNameAPIKeyReq
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.xEnableClientEncryption != nil {
-		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-Enable-Client-Encryption", r.xEnableClientEncryption, "", "")
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {

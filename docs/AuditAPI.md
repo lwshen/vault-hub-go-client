@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetAuditLogs
 
-> AuditLogsResponse GetAuditLogs(ctx).PageSize(pageSize).PageIndex(pageIndex).StartDate(startDate).EndDate(endDate).VaultUniqueId(vaultUniqueId).Execute()
+> AuditLogsResponse GetAuditLogs(ctx).PageSize(pageSize).PageIndex(pageIndex).StartDate(startDate).EndDate(endDate).VaultUniqueId(vaultUniqueId).Source(source).Execute()
 
 
 
@@ -36,10 +36,11 @@ func main() {
 	startDate := time.Now() // time.Time | Filter logs from this date (ISO 8601 format) (optional)
 	endDate := time.Now() // time.Time | Filter logs until this date (ISO 8601 format) (optional)
 	vaultUniqueId := "vaultUniqueId_example" // string | Filter logs by vault unique ID (optional)
+	source := "source_example" // string | Filter logs by source (web interface or CLI) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuditAPI.GetAuditLogs(context.Background()).PageSize(pageSize).PageIndex(pageIndex).StartDate(startDate).EndDate(endDate).VaultUniqueId(vaultUniqueId).Execute()
+	resp, r, err := apiClient.AuditAPI.GetAuditLogs(context.Background()).PageSize(pageSize).PageIndex(pageIndex).StartDate(startDate).EndDate(endDate).VaultUniqueId(vaultUniqueId).Source(source).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuditAPI.GetAuditLogs``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **startDate** | **time.Time** | Filter logs from this date (ISO 8601 format) | 
  **endDate** | **time.Time** | Filter logs until this date (ISO 8601 format) | 
  **vaultUniqueId** | **string** | Filter logs by vault unique ID | 
+ **source** | **string** | Filter logs by source (web interface or CLI) | 
 
 ### Return type
 

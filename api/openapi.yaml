@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.6
+  version: 1.0.7
 servers:
 - url: /
 paths:
@@ -255,6 +255,20 @@ paths:
           description: Vault created successfully
       tags:
       - Vault
+  /api/vaults/filter-options:
+    get:
+      description: Get minimal vault list for filter dropdowns (uniqueId and name
+        only)
+      operationId: getVaultFilterOptions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VaultFilterOptionsResponse'
+          description: List of vaults for filter dropdowns
+      tags:
+      - Vault
   /api/vaults/{uniqueId}:
     delete:
       description: Delete a vault
@@ -339,6 +353,15 @@ paths:
         name: vaultUniqueId
         required: false
         schema:
+          type: string
+      - description: Filter logs by source (web interface or CLI)
+        in: query
+        name: source
+        required: false
+        schema:
+          enum:
+          - web
+          - cli
           type: string
       - description: "Number of logs per page (default 100, max 1000)"
         in: query
@@ -793,6 +816,37 @@ components:
           description: Category/type of vault
           maxLength: 100
           type: string
+      type: object
+    VaultFilterOption:
+      example:
+        name: name
+        uniqueId: uniqueId
+      properties:
+        uniqueId:
+          description: Unique identifier for the vault
+          type: string
+        name:
+          description: Human-readable name
+          type: string
+      required:
+      - name
+      - uniqueId
+      type: object
+    VaultFilterOptionsResponse:
+      example:
+        vaults:
+        - name: name
+          uniqueId: uniqueId
+        - name: name
+          uniqueId: uniqueId
+      properties:
+        vaults:
+          description: List of vaults for filter dropdowns
+          items:
+            $ref: '#/components/schemas/VaultFilterOption'
+          type: array
+      required:
+      - vaults
       type: object
     AuditLogsResponse:
       example:

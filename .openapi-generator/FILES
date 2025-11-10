@@ -47,6 +47,8 @@ docs/UserAPI.md
 docs/Vault.md
 docs/VaultAPI.md
 docs/VaultAPIKey.md
+docs/VaultFilterOption.md
+docs/VaultFilterOptionsResponse.md
 docs/VaultLite.md
 docs/VaultsResponse.md
 git_push.sh
@@ -76,6 +78,8 @@ model_update_api_key_request.go
 model_update_vault_request.go
 model_vault.go
 model_vault_api_key.go
+model_vault_filter_option.go
+model_vault_filter_options_response.go
 model_vault_lite.go
 model_vaults_response.go
 response.go

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.7
+  version: 1.0.8
 servers:
 - url: /
 paths:
@@ -701,6 +701,7 @@ components:
         name: name
         description: description
         category: category
+        favourite: true
         uniqueId: uniqueId
         updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -716,6 +717,9 @@ components:
         category:
           description: Category/type of vault
           type: string
+        favourite:
+          description: Favourite flag
+          type: boolean
         updatedAt:
           format: date-time
           type: string
@@ -729,6 +733,7 @@ components:
         name: name
         description: description
         category: category
+        favourite: true
         userId: 0
         value: value
         uniqueId: uniqueId
@@ -753,6 +758,9 @@ components:
         category:
           description: Category/type of vault
           type: string
+        favourite:
+          description: Favourite flag
+          type: boolean
         createdAt:
           format: date-time
           type: string
@@ -769,6 +777,7 @@ components:
         name: name
         description: description
         category: category
+        favourite: false
         value: value
       properties:
         name:
@@ -788,6 +797,10 @@ components:
           description: Category/type of vault
           maxLength: 100
           type: string
+        favourite:
+          default: false
+          description: Favourite flag
+          type: boolean
       required:
       - name
       - value
@@ -797,6 +810,7 @@ components:
         name: name
         description: description
         category: category
+        favourite: true
         value: value
       properties:
         name:
@@ -816,6 +830,9 @@ components:
           description: Category/type of vault
           maxLength: 100
           type: string
+        favourite:
+          description: Favourite flag
+          type: boolean
       type: object
     VaultFilterOption:
       example:
@@ -860,11 +877,13 @@ components:
             - name: name
               description: description
               category: category
+              favourite: true
               uniqueId: uniqueId
               updatedAt: 2000-01-23T04:56:07.000+00:00
             - name: name
               description: description
               category: category
+              favourite: true
               uniqueId: uniqueId
               updatedAt: 2000-01-23T04:56:07.000+00:00
             id: 0
@@ -879,6 +898,7 @@ components:
             name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -890,11 +910,13 @@ components:
             - name: name
               description: description
               category: category
+              favourite: true
               uniqueId: uniqueId
               updatedAt: 2000-01-23T04:56:07.000+00:00
             - name: name
               description: description
               category: category
+              favourite: true
               uniqueId: uniqueId
               updatedAt: 2000-01-23T04:56:07.000+00:00
             id: 0
@@ -909,6 +931,7 @@ components:
             name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
         pageIndex: 5
@@ -945,11 +968,13 @@ components:
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           id: 0
@@ -964,6 +989,7 @@ components:
           name: name
           description: description
           category: category
+          favourite: true
           uniqueId: uniqueId
           updatedAt: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1043,11 +1069,13 @@ components:
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           id: 0
@@ -1061,11 +1089,13 @@ components:
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           id: 0
@@ -1103,11 +1133,13 @@ components:
         - name: name
           description: description
           category: category
+          favourite: true
           uniqueId: uniqueId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - name: name
           description: description
           category: category
+          favourite: true
           uniqueId: uniqueId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         id: 0
@@ -1189,11 +1221,13 @@ components:
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           - name: name
             description: description
             category: category
+            favourite: true
             uniqueId: uniqueId
             updatedAt: 2000-01-23T04:56:07.000+00:00
           id: 0
@@ -1296,11 +1330,13 @@ components:
         - name: name
           description: description
           category: category
+          favourite: true
           uniqueId: uniqueId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         - name: name
           description: description
           category: category
+          favourite: true
           uniqueId: uniqueId
           updatedAt: 2000-01-23T04:56:07.000+00:00
         pageSize: 6

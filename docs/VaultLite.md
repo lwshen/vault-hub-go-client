@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Human-readable name | 
 **Description** | Pointer to **string** | Human-readable description | [optional] 
 **Category** | Pointer to **string** | Category/type of vault | [optional] 
+**Favourite** | Pointer to **bool** | Favourite flag | [optional] 
 **UpdatedAt** | Pointer to **time.Time** |  | [optional] 
 
 ## Methods
@@ -118,6 +119,31 @@ SetCategory sets Category field to given value.
 `func (o *VaultLite) HasCategory() bool`
 
 HasCategory returns a boolean if a field has been set.
+
+### GetFavourite
+
+`func (o *VaultLite) GetFavourite() bool`
+
+GetFavourite returns the Favourite field if non-nil, zero value otherwise.
+
+### GetFavouriteOk
+
+`func (o *VaultLite) GetFavouriteOk() (*bool, bool)`
+
+GetFavouriteOk returns a tuple with the Favourite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFavourite
+
+`func (o *VaultLite) SetFavourite(v bool)`
+
+SetFavourite sets Favourite field to given value.
+
+### HasFavourite
+
+`func (o *VaultLite) HasFavourite() bool`
+
+HasFavourite returns a boolean if a field has been set.
 
 ### GetUpdatedAt
 

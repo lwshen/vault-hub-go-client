@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Value** | Pointer to **string** | Value to be encrypted and stored | [optional] 
 **Description** | Pointer to **string** | Human-readable description | [optional] 
 **Category** | Pointer to **string** | Category/type of vault | [optional] 
+**Favourite** | Pointer to **bool** | Favourite flag | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetCategory sets Category field to given value.
 `func (o *UpdateVaultRequest) HasCategory() bool`
 
 HasCategory returns a boolean if a field has been set.
+
+### GetFavourite
+
+`func (o *UpdateVaultRequest) GetFavourite() bool`
+
+GetFavourite returns the Favourite field if non-nil, zero value otherwise.
+
+### GetFavouriteOk
+
+`func (o *UpdateVaultRequest) GetFavouriteOk() (*bool, bool)`
+
+GetFavouriteOk returns a tuple with the Favourite field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFavourite
+
+`func (o *UpdateVaultRequest) SetFavourite(v bool)`
+
+SetFavourite sets Favourite field to given value.
+
+### HasFavourite
+
+`func (o *UpdateVaultRequest) HasFavourite() bool`
+
+HasFavourite returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

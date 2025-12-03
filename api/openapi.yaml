@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.8
+  version: 1.0.9
 servers:
 - url: /
 paths:
@@ -1308,6 +1308,7 @@ components:
       type: object
     ConfigResponse:
       example:
+        demoEnabled: false
         emailEnabled: false
         oidcEnabled: false
       properties:
@@ -1319,7 +1320,12 @@ components:
           description: Whether transactional email is enabled
           example: false
           type: boolean
+        demoEnabled:
+          description: Whether demo mode is enabled
+          example: false
+          type: boolean
       required:
+      - demoEnabled
       - emailEnabled
       - oidcEnabled
       type: object

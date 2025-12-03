@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OidcEnabled** | **bool** | Whether OIDC authentication is enabled | 
 **EmailEnabled** | **bool** | Whether transactional email is enabled | 
+**DemoEnabled** | **bool** | Whether demo mode is enabled | 
 
 ## Methods
 
 ### NewConfigResponse
 
-`func NewConfigResponse(oidcEnabled bool, emailEnabled bool, ) *ConfigResponse`
+`func NewConfigResponse(oidcEnabled bool, emailEnabled bool, demoEnabled bool, ) *ConfigResponse`
 
 NewConfigResponse instantiates a new ConfigResponse object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *ConfigResponse) SetEmailEnabled(v bool)`
 
 SetEmailEnabled sets EmailEnabled field to given value.
+
+
+### GetDemoEnabled
+
+`func (o *ConfigResponse) GetDemoEnabled() bool`
+
+GetDemoEnabled returns the DemoEnabled field if non-nil, zero value otherwise.
+
+### GetDemoEnabledOk
+
+`func (o *ConfigResponse) GetDemoEnabledOk() (*bool, bool)`
+
+GetDemoEnabledOk returns a tuple with the DemoEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDemoEnabled
+
+`func (o *ConfigResponse) SetDemoEnabled(v bool)`
+
+SetDemoEnabled sets DemoEnabled field to given value.
 
 
 

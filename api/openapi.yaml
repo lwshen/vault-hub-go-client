@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.9
+  version: 1.0.10
 servers:
 - url: /
 paths:
@@ -193,6 +193,25 @@ paths:
       responses:
         "302":
           description: Redirect to frontend with token fragment
+      tags:
+      - Auth
+  /api/auth/password/change:
+    post:
+      description: Change password for authenticated user
+      operationId: changePassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+        required: true
+      responses:
+        "200":
+          description: Password changed successfully
+        "400":
+          description: Invalid input or password requirements not met
+        "401":
+          description: Invalid current password or unauthorized
       tags:
       - Auth
   /api/user:
@@ -680,6 +699,21 @@ components:
       - code
       - success
       type: object
+    ChangePasswordRequest:
+      example:
+        newPassword: newPassword
+        currentPassword: currentPassword
+      properties:
+        currentPassword:
+          description: Current password for verification
+          type: string
+        newPassword:
+          description: New password (must meet complexity requirements)
+          type: string
+      required:
+      - currentPassword
+      - newPassword
+      type: object
     GetUserResponse:
       example:
         name: name
@@ -1014,6 +1048,12 @@ components:
           - create_api_key
           - update_api_key
           - delete_api_key
+          - request_password_reset
+          - password_reset
+          - change_password
+          - request_magic_link
+          - magic_link_login
+          - send_signup_email
           type: string
         source:
           description: Source of the request (web interface or CLI)

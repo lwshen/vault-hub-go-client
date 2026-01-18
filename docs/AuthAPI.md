@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ChangePassword**](AuthAPI.md#ChangePassword) | **Post** /api/auth/password/change | 
 [**ConfirmPasswordReset**](AuthAPI.md#ConfirmPasswordReset) | **Post** /api/auth/password/reset/confirm | 
 [**ConsumeMagicLink**](AuthAPI.md#ConsumeMagicLink) | **Get** /api/auth/magic-link/token | 
 [**Login**](AuthAPI.md#Login) | **Post** /api/auth/login | 
@@ -12,6 +13,70 @@ Method | HTTP request | Description
 [**RequestPasswordReset**](AuthAPI.md#RequestPasswordReset) | **Post** /api/auth/password/reset/request | 
 [**Signup**](AuthAPI.md#Signup) | **Post** /api/auth/signup | 
 
+
+
+## ChangePassword
+
+> ChangePassword(ctx).ChangePasswordRequest(changePasswordRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lwshen/vault-hub-go-client"
+)
+
+func main() {
+	changePasswordRequest := *openapiclient.NewChangePasswordRequest("CurrentPassword_example", "NewPassword_example") // ChangePasswordRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AuthAPI.ChangePassword(context.Background()).ChangePasswordRequest(changePasswordRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthAPI.ChangePassword``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiChangePasswordRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## ConfirmPasswordReset

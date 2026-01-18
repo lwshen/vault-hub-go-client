@@ -21,6 +21,7 @@ docs/AuditLog.md
 docs/AuditLogsResponse.md
 docs/AuditMetricsResponse.md
 docs/AuthAPI.md
+docs/ChangePasswordRequest.md
 docs/CliAPI.md
 docs/ConfigAPI.md
 docs/ConfigResponse.md
@@ -58,6 +59,7 @@ model_api_keys_response.go
 model_audit_log.go
 model_audit_logs_response.go
 model_audit_metrics_response.go
+model_change_password_request.go
 model_config_response.go
 model_create_api_key_request.go
 model_create_api_key_response.go

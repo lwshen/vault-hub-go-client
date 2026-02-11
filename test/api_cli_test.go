@@ -62,4 +62,18 @@ func Test_openapi_CliAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test CliAPIService UpdateVaultByAPIKey", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var uniqueId string
+
+		resp, httpRes, err := apiClient.CliAPI.UpdateVaultByAPIKey(context.Background(), uniqueId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 }

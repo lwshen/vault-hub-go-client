@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vault Hub Server
-  version: 1.0.10
+  version: 1.0.11
 servers:
 - url: /
 paths:
@@ -548,6 +548,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/Vault'
           description: Vault details
+      security:
+      - ApiKeyAuth: []
+      tags:
+      - Cli
+    put:
+      description: Update a vault by Unique ID using API key. Supports X-Enable-Client-Encryption
+        header for client-side encryption.
+      operationId: updateVaultByAPIKey
+      parameters:
+      - description: Vault Unique ID
+        in: path
+        name: uniqueId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVaultRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vault'
+          description: Vault updated successfully
+        "400":
+          description: Bad request - validation error
+        "403":
+          description: Forbidden - API key does not have access to this vault
+        "404":
+          description: Vault not found
       security:
       - ApiKeyAuth: []
       tags:

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**GetVaultByNameAPIKey**](CliAPI.md#GetVaultByNameAPIKey) | **Get** /api/cli/vault/name/{name} | 
 [**GetVaultsByAPIKey**](CliAPI.md#GetVaultsByAPIKey) | **Get** /api/cli/vaults | 
 [**UpdateVaultByAPIKey**](CliAPI.md#UpdateVaultByAPIKey) | **Put** /api/cli/vault/{uniqueId} | 
+[**UpdateVaultByNameAPIKey**](CliAPI.md#UpdateVaultByNameAPIKey) | **Put** /api/cli/vault/name/{name} | 
 
 
 
@@ -259,6 +260,78 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiUpdateVaultByAPIKeyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **updateVaultRequest** | [**UpdateVaultRequest**](UpdateVaultRequest.md) |  | 
+
+### Return type
+
+[**Vault**](Vault.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateVaultByNameAPIKey
+
+> Vault UpdateVaultByNameAPIKey(ctx, name).UpdateVaultRequest(updateVaultRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lwshen/vault-hub-go-client"
+)
+
+func main() {
+	name := "name_example" // string | Vault name
+	updateVaultRequest := *openapiclient.NewUpdateVaultRequest() // UpdateVaultRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CliAPI.UpdateVaultByNameAPIKey(context.Background(), name).UpdateVaultRequest(updateVaultRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CliAPI.UpdateVaultByNameAPIKey``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `UpdateVaultByNameAPIKey`: Vault
+	fmt.Fprintf(os.Stdout, "Response from `CliAPI.UpdateVaultByNameAPIKey`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** | Vault name | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUpdateVaultByNameAPIKeyRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
